@@ -70,6 +70,23 @@ if (num === true){
     console.log(num);
 }
 
+// special characters in password
+
+var sChar = window.confirm("Do you want special characters in your password?");
+console.log(sChar);
+
+if (sChar === true){
+  window.alert("We will use special characters in your password.");
+  console.log(sChar);
+
+}else{
+  window.alert("We will NOT use special characters in your password.");
+    console.log(sChar);
+}
+
+
+
+
 
 
 // Make sures the input is a number.
