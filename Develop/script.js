@@ -1,14 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+const lowerCase = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,v,w,x,y"
 
 
-// var lowerC = confirm("Do you want lowercases in your Password?"); 
-// let length = howLong + Math.min(8, Math.max(128)); 
-
-// function hasLowerCase() {
-//   var lower = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
-// }
 
 
 // Write password to the #password input
@@ -18,27 +13,25 @@ function writePassword() {
 
   checkLength(howLong);
   
-  
   if (howLong < 8 || howLong > 128){
       alert("Lengths needs to be bewteen 8 and 128 characters.");
-      console.log(howLong); 
-      return howLong;
+      console.log(howLong);
+      return writePassword();
     
-  } else {
-    lowerCase;
-  }
+  } 
     
 var lowerCase = confirm("Do you want lowerCases in your password?");
+// if (lowerCase())
 
 
 function checkLength(howLong) {
   if (isNaN(howLong)){
     alert("Need to input a number between 8 and 128");
-    return false;
+    return writePassword();
   }
   }
 
-  
+
 
 
 
