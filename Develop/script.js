@@ -42,15 +42,18 @@ function writePassword() {
 
 //upper case in password
 
-// var upperCase = window.confirm("Do you want uppercases in your password?"); (true);
+var upperCase = window.confirm("Do you want uppercases in your password?");
+console.log(upperCase);
 
-// if(confirm(upperCase)){
-//   window.alert("We will add uppercases to your password");
-//   console.log(upperCase);
-// }else{
-//   window.alert("We will NOT add uppercases to your password");
-//   console.log(upperCase);
-// }
+if (upperCase === true){
+  window.alert("We will use lowercases in your password.");
+  console.log(upperCase);
+
+}else{
+  window.alert("We will NOT use lowercases in your password.");
+    console.log(upperCase);
+}
+
 
 
 
