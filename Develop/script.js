@@ -1,13 +1,17 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-const lowerCase = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,v,w,x,y"
+const lowerCaseLetters= "abcdefghijklmnopqrstuvwxyz"
+const upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 
 
 
 
 // Write password to the #password input
 function writePassword() {
+
+  //Wanted length of password
   var howLong = prompt("How long do you want your password to be?"); 
   console.log(howLong);
 
@@ -19,9 +23,26 @@ function writePassword() {
       return writePassword();
     
   } 
+
+  //lower case in password
     
-var lowerCase = confirm("Do you want lowerCases in your password?");
-// if (lowerCase())
+  var lowerCase = window.confirm("Do you want lowerCases in your password?"); (true);
+  console.log(lowerCase);
+
+
+  if (confirm(lowerCase)){
+      window.alert("We will use lowercases in your password.");
+      console.log(lowerCase);
+  } else{ 
+      window.alert("We will NOT use lowercases in your password.");
+      console.log(lowerCase);
+  }
+
+//
+
+
+
+// Make sures the input is a number.
 
 
 function checkLength(howLong) {
@@ -30,6 +51,8 @@ function checkLength(howLong) {
     return writePassword();
   }
   }
+
+
 
 
 
