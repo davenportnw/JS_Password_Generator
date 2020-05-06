@@ -9,6 +9,7 @@ const upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 // Write password to the #password input
+
 function writePassword() {
 
   //Wanted length of password
@@ -54,6 +55,20 @@ if (upperCase === true){
     console.log(upperCase);
 }
 
+
+//numbers in password
+
+var num = window.confirm("Do you want numbers in your password?");
+console.log(num);
+
+if (num === true){
+  window.alert("We will use numbers in your password.");
+  console.log(num);
+
+}else{
+  window.alert("We will NOT use numbers in your password.");
+    console.log(num);
+}
 
 
 
