@@ -8,23 +8,39 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 
 function writePassword() {
-    
+  var alphabet = "";
+  let lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+  let upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let numbers = "1234567890";
+  let specialCharacters = "~!@#$%^&*()_-+:";
+
     let a = getLength();
 
     let b = useLowerCase();
-
+    if (b === true) {
+      alphabet += lowerCaseLetters;
+    }
     let c = useUpperCase();
-
+    if (c === true){
+      alphabet += upperCaseLetters;
+    }
     let d = useNumbers();
-
+    if (d === true) {
+      alphabet += numbers;
+    }
     let e = useSpecialCharacters();
-
+    if ( e === true) {
+      alphabet += specialCharacters;
+    }
+    console.log("alpabet", alphabet);
     if ((b || c || d || e )  === false) {
       alert("Select at least one critera.");
       writePassword();
     }
 
     console.log('a:', a, 'b:', b, 'c:', c, 'd:', d, 'e:', e);
+
+    var letter = getCharacter(alphabet);
 }
 
 
@@ -97,9 +113,8 @@ function useSpecialCharacters() {
 
 //Collect random Lower Case letter//
 
-function getLowerCaseLetter() {
-  var lowerCaseLetters= "abcdefghijklmnopqrstuvwxyz"
-  let randomLcase = lowerCaseLetters[Math.floor(Math.random() * lowerCaseLetters.length)];
+function getCharacter(alphabet) {
+  let randomLcase = alphabet[Math.floor(Math.random() * alphabet.length)];
   return randomLcase;
 }
 
@@ -134,13 +149,13 @@ function getSpecialCharacter() {
 
 
 
-function collectLowerCaseLetters(count) {
+function collectCharacters(count) {
   var letters = "";
   console.log("count", count);
 
   for(var i = 0; i < count; i++) {
     console.log(i);
-    letters += getLowerCaseLetter();
+    letters += getCharacter();
     console.log(letters);
   }
   return letters; 
