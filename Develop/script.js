@@ -39,12 +39,14 @@ function writePassword() {
     }
 
     console.log('a:', a, 'b:', b, 'c:', c, 'd:', d, 'e:', e);
-
-    var letter = getCharacter(alphabet);
+    
+    let password = collectCharacters(a, alphabet);
+    console.log("password", password);
+   
 }
 
 
-//* Lengthslet of desired password *//
+//* Criteria for desired password *//
 
 function getLength() {
   let pwdLength = window.prompt("How long do you want your password?");
@@ -109,7 +111,7 @@ function useSpecialCharacters() {
   }
   return specialCharacters;
 }
- //* Generate Password *//
+
 
 //Collect random Lower Case letter//
 
@@ -118,45 +120,14 @@ function getCharacter(alphabet) {
   return randomLcase;
 }
 
-//Collects random Upper Case letters// 
-
-function getUpperCaseLetter() {
-  var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  var randomUCase = upperCaseLetters[Math.floor(Math.random() * upperCaseLetters.length)];
-  return randomUCase;
-}
-
-//Collects random Numbers//
-function getNumbers() {
-  var numbers = "1234567890";
-  var randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
-  return randomNumber;
-}
-
-//Collects random Special Character//
-
-function getSpecialCharacter() {
-  var specialCharacters = "~!@#$%^&*()_-+:";
-  var randomSpecialCharacter = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-  return randomSpecialCharacter;
-}
-
-
-
 
 //* Generate Password *//
 
-
-
-
-function collectCharacters(count) {
+function collectCharacters(count, alphabet) {
   var letters = "";
-  console.log("count", count);
 
   for(var i = 0; i < count; i++) {
-    console.log(i);
-    letters += getCharacter();
-    console.log(letters);
+    letters += getCharacter(alphabet);
   }
   return letters; 
 }
