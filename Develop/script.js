@@ -2,10 +2,6 @@
 var generateBtn = document.querySelector("#generate");
 
 
-// const upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-// const numbers1 = "1234567890"
-// const specialCharacters = "~!@#$%^&*()_-+:"
-
 
 
 
@@ -14,30 +10,33 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
     
     let a = getLength();
-    console.log(a);
 
-    let b = getLowerCaseLetter();
-    console.log(b);
+    let b = useLowerCase();
 
-    let c = collectLowerCaseLetters(a);
-    console.log(c);
+    let c = useUpperCase();
 
-    // let b = useLowerCase();
-    // let c = uCase();
-    // let d = numP();
-    // let e = sCharacters();
-  //  let f = manyTimes();
+    let d = useNumbers();
 
+    let e = useSpecialCharacters();
+
+    if ((b || c || d || e )  === false) {
+      alert("Select at least one critera.");
+      writePassword();
+    }
+
+    console.log('a:', a, 'b:', b, 'c:', c, 'd:', d, 'e:', e);
+}
 
 
 //* Lengthslet of desired password *//
 
-function getLength(){
+function getLength() {
   let pwdLength = window.prompt("How long do you want your password?");
     if (isNaN(pwdLength)){ 
     alert("Need to input a number between 8 and 128");
     return writePassword();
   }
+  //Checks to make sure the input is a number.
     if (pwdLength < 8 || pwdLength > 128){
     alert("Lengths needs to be bewteen 8 and 128 characters.");
     return writePassword();
@@ -45,95 +44,97 @@ function getLength(){
   return pwdLength;
 }
 
+//* Using Lower Case *//
 
-
-
-// Make sures the input is a number.
-
-// function checkLength() {
-//   if (isNaN(howLong)){ 
-//     alert("Need to input a number between 8 and 128");
-//     return writePassword();
-//     }
-// }
-
-  //* Using Lower Case *//
-
-// function useLowerCase(){
-//   let lowerCase = window.confirm("Do you want lowercases in your password? Click Ok for YES or Cancel for NO.");
-//   console.log(lowerCase);
+function useLowerCase() {
+  let lowerCase = window.confirm("Do you want lowercases in your password? Click Ok for YES or Cancel for NO.");
   
-//   if (lowerCase === true){
-//     window.alert("We will use lowercases in your password. ");
-//     console.log(lowerCase);
-//   }else{
-//     window.alert("We will NOT use lowercases in your password.");
-//       console.log(lowerCase);
-//   }
-//   return lowerCase;
-
+  if (lowerCase === true){
+    window.alert("We will use lowercases in your password. ");
+  }else{
+    window.alert("We will NOT use lowercases in your password.");
+  }
+  return lowerCase;
 }
 
 
-//* upper case in password *//
-// function uCase(){
-//   var upperCase = window.confirm("Do you want uppercases in your password? Click Ok for YES or Cancel for NO.");
-//   console.log(upperCase);
-  
-//   if (upperCase === true){
-//   window.alert("We will use lowercases in your password.");
-//   console.log(upperCase);
-//   }else{
-//     window.alert("We will NOT use lowercases in your password.");
-//     console.log(upperCase);
-//   }
-// }
+//* Using Upper Case *//
+function useUpperCase() {
+  var upperCase = window.confirm("Do you want uppercases in your password? Click Ok for YES or Cancel for NO.");
 
-//* numbers in password *//
-// function numP(){
-//   var num = window.confirm("Do you want numbers in your password? Click Ok for YES or Cancel for NO.");
-//   console.log(num);
+  if (upperCase === true){
+  window.alert("We will use lowercases in your password.");
+  }else{
+    window.alert("We will NOT use lowercases in your password.");
+  }
+  return upperCase;
+}
 
-//   if (num === true){
-//     window.alert("We will use numbers in your password.");
-//     console.log(num);
+//* Using Numbers *//
+function useNumbers() {
+  var num = window.confirm("Do you want numbers in your password? Click Ok for YES or Cancel for NO.");
 
-//   }else{
-//     window.alert("We will NOT use numbers in your password.");
-//     console.log(num);
-//   }
-// }
+  if (num === true){
+    window.alert("We will use numbers in your password.");
+  }else{
+    window.alert("We will NOT use numbers in your password.");
+  }
+  return num;
+}
 
+//* Using Special Characters *//
+function useSpecialCharacters() {
+  var specialCharacters = window.confirm("Do you want special characters in your password? Click Ok for YES or Cancel for NO.");
 
-//* special characters in password *//
-// function sCharacters(){
-//   var sChar = window.confirm("Do you want special characters in your password? Click Ok for YES or Cancel for NO.");
-//   console.log(sChar);
+  if (specialCharacters === true){
+    window.alert("We will use special characters in your password.");
+  }else{
+    window.alert("We will NOT use special characters in your password.");
+  }
+  return specialCharacters;
+}
+ //* Generate Password *//
 
-//   if (sChar === true){
-//     window.alert("We will use special characters in your password.");
-//     console.log(sChar);
-//   }else{
-//     window.alert("We will NOT use special characters in your password.");
-//     console.log(sChar);
-//   }
-// }
-// function manyTimes(){
-//   let timeS = getLength() * lCaseCheck();
-//   console.log(timeS);
-//   return manyTimes;
-// }
+//Collect random Lower Case letter//
 
-
-// //* Generate Password *//
-function getLowerCaseLetter(){
+function getLowerCaseLetter() {
   var lowerCaseLetters= "abcdefghijklmnopqrstuvwxyz"
   let randomLcase = lowerCaseLetters[Math.floor(Math.random() * lowerCaseLetters.length)];
-  // console.log(randomLcase);
   return randomLcase;
 }
 
-function collectLowerCaseLetters(count){
+//Collects random Upper Case letters// 
+
+function getUpperCaseLetter() {
+  var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var randomUCase = upperCaseLetters[Math.floor(Math.random() * upperCaseLetters.length)];
+  return randomUCase;
+}
+
+//Collects random Numbers//
+function getNumbers() {
+  var numbers = "1234567890";
+  var randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+  return randomNumber;
+}
+
+//Collects random Special Character//
+
+function getSpecialCharacter() {
+  var specialCharacters = "~!@#$%^&*()_-+:";
+  var randomSpecialCharacter = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+  return randomSpecialCharacter;
+}
+
+
+
+
+//* Generate Password *//
+
+
+
+
+function collectLowerCaseLetters(count) {
   var letters = "";
   console.log("count", count);
 
@@ -147,17 +148,7 @@ function collectLowerCaseLetters(count){
 
 
 
-// function lCaseCheck(){
-//   var lowerCaseLetters= "abcdefghijklmnopqrstuvwxyz"
 
-//   if(lCase === true){
-//     let randomLcase = lowerCaseLetters[Math.floor(Math.random() * lowerCaseLetters.length)];
-//     console.log(randomLcase);
-//     let lowerLets = randomLcase * howLong;
-//     console.log(lowerLets);
-//     return lowerLets;
-//   }
-// }
 
   
 
