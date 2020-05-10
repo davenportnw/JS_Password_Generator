@@ -3,8 +3,6 @@ var generateBtn = document.querySelector("#generate");
 
 
 
-
-
 // Write password to the #password input
 
 function writePassword() {
@@ -42,7 +40,9 @@ function writePassword() {
     
     let password = collectCharacters(a, alphabet);
     console.log("password", password);
-   
+    
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
 }
 
 
@@ -131,20 +131,6 @@ function collectCharacters(count, alphabet) {
   }
   return letters; 
 }
-
-
-
-
-
-  
-
-
-
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
-
-  // passwordText.value = password;
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
